@@ -19,7 +19,6 @@ public class Cursor : MonoBehaviour
     private Vector3 moveDir;
 
     private RectTransform canvasRoot;
-    private PointerEventData pointerEventData;
     
     // Start is called before the first frame update
     void Start()
@@ -27,7 +26,6 @@ public class Cursor : MonoBehaviour
         Canvas item = GameObject.Find("Canvas")?.GetComponent<Canvas>();
         canvasRoot = GameObject.Find("Canvas")?.GetComponent<RectTransform>();
 
-        pointerEventData = new PointerEventData(EventSystem.current);
         screenAspect = new Vector2(Screen.width / canvasRoot.sizeDelta.x, Screen.height / canvasRoot.sizeDelta.y);
         
     }
@@ -68,9 +66,17 @@ public class Cursor : MonoBehaviour
         //Simple Click
         if (Input.GetKeyDown(downPress))
         {
-            pointerEventData.position = ScreenPoint;
-            BoaderCastClickEvent();
+            CursorPlugin.GetInstance().BoaderCastDownEvent(ScreenPoint);
         }
+        else if (Input.GetKeyUp(downPress))
+        {
+            CursorPlugin.GetInstance().BoaderCastUpEvent(ScreenPoint);
+        }
+        else
+        {
+            CursorPlugin.GetInstance().BoaderCastMoveEvent(ScreenPoint);
+        }
+
     }
 
     Vector3 ScreenPoint
@@ -79,27 +85,6 @@ public class Cursor : MonoBehaviour
         {
             Vector2 uguiScreenPos = new Vector2(transform.localPosition.x + canvasRoot.sizeDelta.x / 2, transform.localPosition.y + canvasRoot.sizeDelta.y / 2);
             return new Vector3(uguiScreenPos.x * screenAspect.x, uguiScreenPos.y * screenAspect.y, transform.localPosition.z);
-        }
-    }
-
-    void BoaderCastClickEvent()
-    {
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerEventData, results);
-        RaycastResult? findedClickable = null;
-        
-        foreach (var result in results)
-        {
-            var clickHandler = result.gameObject.GetComponent<IPointerClickHandler>();
-            if (clickHandler != null)
-            {
-                findedClickable = result;
-                break;
-            }
-        }
-        if (findedClickable.HasValue)
-        {
-            ExecuteEvents.Execute(findedClickable.Value.gameObject, pointerEventData, ExecuteEvents.pointerClickHandler);
         }
     }
 
