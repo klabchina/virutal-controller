@@ -34,11 +34,11 @@ public class CursorPlugin
         
         if (findedClickable.gameObject)
         {
+            Debug.LogWarning(currentObject);
             currentObject = findedClickable.gameObject;
             var pointerDownHandler = ExecuteEvents.GetEventHandler<IPointerDownHandler>(currentObject);
             ExecuteEvents.Execute(pointerDownHandler, pointerEventData, ExecuteEvents.pointerDownHandler);
         }
-        pointerEventData.Reset();
     }
 
     public void BoaderCastUpEvent(Vector3 screenVector)
@@ -54,11 +54,12 @@ public class CursorPlugin
                 var pointerClickHandler = ExecuteEvents.GetEventHandler<IPointerClickHandler>(currentObject);
                 ExecuteEvents.Execute(pointerClickHandler, pointerEventData, ExecuteEvents.pointerClickHandler);
             }
-            var pointerDownHandler = ExecuteEvents.GetEventHandler<IPointerDownHandler>(currentObject);
-            ExecuteEvents.Execute(pointerDownHandler, pointerEventData, ExecuteEvents.pointerUpHandler);
+            var pointerUpHandler = ExecuteEvents.GetEventHandler<IPointerUpHandler>(currentObject);
+            ExecuteEvents.Execute(pointerUpHandler, pointerEventData, ExecuteEvents.pointerUpHandler);
+            ExecuteEvents.Execute(currentObject, pointerEventData, ExecuteEvents.pointerUpHandler);
             currentObject = null;
         }
-        pointerEventData.Reset();
+        
     }
 
     public void BoaderCastMoveEvent(Vector3 screenVector)
