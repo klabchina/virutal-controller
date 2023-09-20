@@ -58,6 +58,8 @@ public class CursorPlugin
             ExecuteEvents.Execute(pointerUpHandler, pointerEventData, ExecuteEvents.pointerUpHandler);
             ExecuteEvents.Execute(currentObject, pointerEventData, ExecuteEvents.pointerUpHandler);
             currentObject = null;
+
+            EventSystem.current.SetSelectedGameObject(null);
         }
         
     }
