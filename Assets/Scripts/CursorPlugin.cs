@@ -37,7 +37,7 @@ public class CursorPlugin
             Debug.LogWarning(currentObject);
             currentObject = findedClickable.gameObject;
             var pointerDownHandler = ExecuteEvents.GetEventHandler<IPointerDownHandler>(currentObject);
-            ExecuteEvents.Execute(pointerDownHandler, pointerEventData, ExecuteEvents.pointerDownHandler);
+            ExecuteEvents.ExecuteHierarchy(pointerDownHandler, pointerEventData, ExecuteEvents.pointerDownHandler);
         }
     }
 
