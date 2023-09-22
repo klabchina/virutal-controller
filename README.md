@@ -1,6 +1,13 @@
 # virutal-controller
 Simulator UI for Unity Event System (UGUI)
 
+# Support
+```
+NewInputScene  		NewInputSystem をサポーターする
+StandaloneInput		OldInputSystem をサポーターする
+InputSystemが何方が使うのは ProjectSettingの中でセード出来ます
+```
+
 # Example
 ```
 SampleScene 
