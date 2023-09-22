@@ -8,16 +8,14 @@ using UnityEngine.Events;
 /// <summary>
 /// 虚拟摇杆操作点
 /// </summary>
-public class Cursor : MonoBehaviour
+public class BaseCursor : MonoBehaviour
 {
     [Header("px per Second")]
     public float MoveSpeed;
+    protected Vector3 moveDir;
 
-    public KeyCode downPress = KeyCode.J;
 
     private Vector2 screenAspect;
-    private Vector3 moveDir;
-
     private RectTransform canvasRoot;
     
     // Start is called before the first frame update
@@ -33,24 +31,8 @@ public class Cursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
-        {
-            moveDir.x = Input.GetKey(KeyCode.LeftArrow) ? -1 : 1;
-        }
-        else
-        {
-            moveDir.x = 0;
-        }
-
-
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
-        {
-            moveDir.y = Input.GetKey(KeyCode.UpArrow) ? 1 : -1;
-        }
-        else
-        {
-            moveDir.y = 0;
-        }
+        CheckCursorMoveDir();
+        
 
         if (!moveDir.Equals(Vector3.zero))
         {
@@ -62,13 +44,11 @@ public class Cursor : MonoBehaviour
             }
         }
 
-
-        //Simple Click
-        if (Input.GetKeyDown(downPress))
+        if (IsCursorDown())
         {
             CursorPlugin.GetInstance().BoaderCastDownEvent(ScreenPoint);
         }
-        else if (Input.GetKeyUp(downPress))
+        else if (IsCursorUp())
         {
             CursorPlugin.GetInstance().BoaderCastUpEvent(ScreenPoint);
         }
@@ -79,7 +59,22 @@ public class Cursor : MonoBehaviour
 
     }
 
-    Vector3 ScreenPoint
+    protected virtual void CheckCursorMoveDir()
+    {
+        
+    }
+
+    protected virtual bool IsCursorDown()
+    {
+        return false;
+    }
+
+    protected virtual bool IsCursorUp()
+    {
+        return false;
+    }
+
+    protected Vector3 ScreenPoint
     {
         get
         {
@@ -89,7 +84,7 @@ public class Cursor : MonoBehaviour
     }
 
 
-    bool CanMove(Vector3 pos)
+    protected bool CanMove(Vector3 pos)
     {
         if (canvasRoot == null)
         {
