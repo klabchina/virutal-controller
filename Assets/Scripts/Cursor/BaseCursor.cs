@@ -19,7 +19,7 @@ public class BaseCursor : MonoBehaviour
     private RectTransform canvasRoot;
     
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         Canvas item = GameObject.Find("Canvas")?.GetComponent<Canvas>();
         canvasRoot = GameObject.Find("Canvas")?.GetComponent<RectTransform>();

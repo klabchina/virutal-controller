@@ -42,6 +42,7 @@ public class CursorPlugin
             var beginDragHandler = ExecuteEvents.GetEventHandler<IBeginDragHandler>(currentObject);
             ExecuteEvents.ExecuteHierarchy(beginDragHandler, pointerEventData, ExecuteEvents.beginDragHandler);
         }
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void BoaderCastUpEvent(Vector3 screenVector)

@@ -1,55 +1,53 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// new inputSystem support
 /// </summary>
 public class NewInputCursor : BaseCursor
 {
-    [Header("MainKey")]
-    public KeyCode downPress = KeyCode.J;
+    private CursorPluginAssets m_ActionAssets;
 
-    [Header("LeftKey")]
-    public KeyCode leftKey = KeyCode.LeftArrow;
 
-    [Header("RightKey")]
-    public KeyCode rightkey = KeyCode.RightArrow;
-
-    [Header("UpKey")]
-    public KeyCode upKey = KeyCode.UpArrow;
-    
-    [Header("DownKey")]
-    public KeyCode downKey = KeyCode.DownArrow;
-    protected override void CheckCursorMoveDir()
+    protected override void Start()
     {
-        if (Input.GetKey(leftKey) || Input.GetKey(rightkey))
-        {
-            moveDir.x = Input.GetKey(leftKey) ? -1 : 1;
-        }
-        else
-        {
-            moveDir.x = 0;
-        }
+        base.Start();
+        m_ActionAssets = new CursorPluginAssets();
+        m_ActionAssets.Enable();
+        m_ActionAssets.VirtualCursor.Enable();
+        m_ActionAssets.VirtualCursor.MainKey.started += OnMainKey;
+        m_ActionAssets.VirtualCursor.MainKey.canceled += OnMainKey;
 
+        m_ActionAssets.VirtualCursor.CrossDir.performed += OnCrossKey;
+        m_ActionAssets.VirtualCursor.CrossDir.canceled += OnCrossCancel;
+    }
 
-        if (Input.GetKey(upKey) || Input.GetKey(downKey))
+    void OnMainKey(InputAction.CallbackContext context)
+    {
+        if (context.phase.Equals(InputActionPhase.Started))
         {
-            moveDir.y = Input.GetKey(upKey) ? 1 : -1;
+            CursorPlugin.GetInstance().BoaderCastDownEvent(ScreenPoint);
         }
-        else
+        else if (context.phase.Equals(InputActionPhase.Canceled))
         {
-            moveDir.y = 0;
+            CursorPlugin.GetInstance().BoaderCastUpEvent(ScreenPoint);
         }
     }
 
-
-
-    protected override bool IsCursorDown()
-    {
-        return Input.GetKeyDown(downPress);
+    void OnCrossKey(InputAction.CallbackContext context)
+    {   
+        moveDir = context.ReadValue<Vector2>();
     }
 
-    protected override bool IsCursorUp()
+    void OnCrossCancel(InputAction.CallbackContext context)
     {
-        return Input.GetKeyUp(downPress);
+        moveDir = Vector2.zero;
+    }
+
+    void OnDestroy()
+    {
+        m_ActionAssets.Disable();
+        m_ActionAssets.Dispose();
+        m_ActionAssets = null;
     }
 }
