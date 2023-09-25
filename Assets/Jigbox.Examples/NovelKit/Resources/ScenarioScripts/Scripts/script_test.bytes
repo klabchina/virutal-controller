@@ -1,0 +1,73 @@
+resource=3 sound=0 script=4 definition=2
+sample_bg_1
+chara_sample
+sample_bg_2
+ScenarioScripts/Scripts/script_test
+ScenarioScripts/Scripts/sample_if
+ScenarioScripts/Scripts/sample_delay
+ScenarioScripts/Scripts/sample_screen_effection
+ScenarioScripts/ConstantValues/sample_constants
+ScenarioScripts/Macro/sample_macro
+#command-test-scene
+&const ScenarioScripts/ConstantValues/sample_constants
+&macro ScenarioScripts/Macro/sample_macro
+%sample_bg_load1 sample_bg_1 1200 900 @center
+goto sample-select
+#sample-select
+- 何をしますか？
+select 基礎機能 sample-default ScenarioScripts/Scripts/script_test
+select 分岐処理 sample-if ScenarioScripts/Scripts/sample_if
+select 遅延処理 sample-delay ScenarioScripts/Scripts/sample_delay
+select 画面効果 sample-screen-effection ScenarioScripts/Scripts/sample_screen_effection
+#sample-default
+%sample_bg_load1 sample_bg_1 1200 900 @center
+- 背景を表示
+ch 1 load @sample-image
+- キャラクター表示
+ch 1 pos 200
+- キャラクターを右に移動
+ch 1 pos /-150 -50
+- キャラクターの位置を変更
+ch 1 pos 0 0
+- キャラクターを中央に戻す
+ch 1 move - - 0.5 /-250
+- キャラクターを左に動かす
+ch 1 pos 0 0
+- 元に戻す
+ch 1 move - EaseOut 0.5 /-250
+- 同じ動きをイージングを変えて実行
+ch 1 pos 0 0
+- 元に戻す
+ch 1 move Back - 0.5 /-250
+- 動き方を変えてみる
+ch 1 hide
+- キャラクターを非表示
+bg 1 load sample_bg_2
+bg 1 size 1200 900
+- 背景を変更
+bg 2 load sample_bg_1
+bg 2 size 1200 900
+- 背景をクロスフェードっぽく切り替える場合は、別なIDの背景を用意する
+bg 2 delete
+- 背景を破棄
+_posx 0
+_posy _posx
+ch 1 pos _posx _posy
+ch 1 show
+- キャラクターを再表示(位置指定に変数を使用)
+ch 1 hide 1.5
+- キャラクターをゆっくり非表示
+ch 1 show 1.5
+- キャラクターをゆっくり表示
+- ||半 角 ス ペ ー スを含む文字列を表示||
+%sample_packed_text ||半 角 ス ペ ー スを含む文字列をマクロで表示||
+- リソースの先読み
+preload sample_bg_1
+- リソースの読み込みが終わるまで(サンプルでは3秒)はクリックしても進まない +
+waittext
+waitload
+waitclick
+- 基本機能サンプルおわり
+- 選択に戻ります
+ch 1 delete
+goto sample-select

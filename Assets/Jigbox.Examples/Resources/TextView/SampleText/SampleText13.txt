@@ -1,0 +1,11 @@
+﻿<span spacing="0.5">ルビ<ruby="つ">付</ruby>き<ruby="もじ">文字</ruby>のスペーシングを<ruby="ため">試</ruby>しています</span>
+<br/>
+<span spacing="0.5"><img name="image 1" src="Sprites/Crystal Icon" /><img name="image 1" src="Sprites/Crystal Icon" /><img name="image 1" src="Sprites/Crystal Icon" /><img name="image 1" src="Sprites/Crystal Icon" /><img name="image 1" src="Sprites/Crystal Icon" /></span>
+<br/>
+<span spacing="0.5"><img name="image 1" src="Sprites/Crystal Icon" width="10px" height="10px" /><img name="image 1" src="Sprites/Crystal Icon" width="20px" height="20px" /><img name="image 1" src="Sprites/Crystal Icon" width="30px" height="30px" /><img name="image 1" src="Sprites/Crystal Icon" width="40px" height="40px" /><img name="image 1" src="Sprites/Crystal Icon" width="50px" height="50px" /></span>
+<br/>
+<span><ruby="とうきょうとっきょきょかきょく">東京特許許可局</ruby></span>□□□<span><ruby="きみ">黄身</ruby></span>□□□<span><ruby="こころざし">志</ruby></span>
+<br/>
+<span>ルビScaleテスト<ruby="ほうおう">鳳凰</ruby>□<ruby="ほうおう" scale="0.3">鳳凰</ruby>□<ruby="ほうおう" scale="0.5">鳳凰</ruby>□<ruby="ほうおう" scale="0.7">鳳凰</ruby></span>
+<br/>
+<span>ルビOffsetテスト<ruby="ほうおう">鳳凰</ruby>□<ruby="ほうおう" offset="0.1">鳳凰</ruby>□<ruby="ほうおう" offset="0.2">鳳凰</ruby>□<ruby="ほうおう" offset="0.3">鳳凰</ruby></span>

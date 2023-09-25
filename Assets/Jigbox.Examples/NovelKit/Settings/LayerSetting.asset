@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bf7696bcc98bf49a7f86b4d9589c50, type: 3}
+  m_Name: LayerSetting
+  m_EditorClassIdentifier: 
+  planeFrontLayer: Default
+  frontCameraCulilngMask: 0
+  planeBackLayer: Default
+  backCameraCullingMask: 0
+  planeOptionalLayer: Default
+  optionalCameraCullingMask: 0
+  uiLayer: UI
+  uiCameraCullingMask: 0
+  subCameraLayer: Default
+  subCameraCullingMask: 0

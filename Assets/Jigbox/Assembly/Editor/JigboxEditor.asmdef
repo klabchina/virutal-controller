@@ -1,0 +1,18 @@
+{
+    "name": "JigboxEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7d611ddcec57d4ddfa02dcff771e33cb"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

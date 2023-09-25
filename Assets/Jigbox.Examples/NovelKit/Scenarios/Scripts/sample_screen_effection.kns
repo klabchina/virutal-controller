@@ -1,0 +1,52 @@
+#sample-screen-effection
+
+ch 1 load chara_sample
+
+- キャラクターを表示
+
+effection enable Front
+
+- キャラクターに画面効果を適用<br/>(見た目上の変化はなし)
+
+effection disable
+
+- 画面効果を解除<br/>(見た目上の変化はなし)
+
+ch 1 hide
+
+- キャラクター非表示
+
+effection enable Front
+se 1 hide 0
+ch 1 show 0
+se 1 show 1
+
+- 画面効果の適用と同時にトランジションを実行
+
+ch 2 load chara_sample
+ch 1 pos -200
+ch 2 pos 200
+
+- キャラクターを追加
+
+se 1 material Sepia
+
+- キャラクターには変更を加えずに、画面効果をセピア調に変更
+
+se 1 material NegativePosition
+
+- キャラクターには変更を加えずに、画面効果をネガポジ変換
+
+se 1 material default
+
+- 画面効果の状態を元に戻す
+
+effection disable
+
+- 遅延処理サンプルおわり
+- 選択に戻ります
+
+ch 1 delete
+ch 2 delete
+
+goto sample-select

@@ -1,0 +1,72 @@
+﻿ABCDEFGHIJKLMN,<img name="image 1" src="Sprites/Gold Icon" />OPQRSTUVWXYZ<br />
+
+abcdefghijklmn,<img name="image 1" src="Sprites/Gold Icon" />opqrstuvwxyz<br />
+
+Add
+<img name="image 1" src="Sprites/Crystal Icon" />
+<img name="image 1" src="Sprites/Crystal Icon" />
+<img name="image 1" src="Sprites/Crystal Icon" />
+to your mana pool.<br />
+
+あなたのマナプールに
+<img name="image 1" src="Sprites/Gold Icon" />
+<img name="image 1" src="Sprites/Gold Icon" />
+<img name="image 1" src="Sprites/Gold Icon" />
+を加える。<br />
+
+<size="60">px指定
+<img name="image 1" src="Sprites/Gold Icon" />
+<img name="image 1" src="Sprites/Gold Icon" height="66px" width="66px" />
+<img name="image 1" src="Sprites/Gold Icon" height="88px" width="88px" />
+<img name="image 1" src="Sprites/Gold Icon" height="110px" width="110px" />
+</size><br />
+
+<size="60">OffsetY
+<img name="image 1" src="Sprites/Gold Icon" />
+<img name="image 1" src="Sprites/Gold Icon" offsetY="20px" />
+<img name="image 1" src="Sprites/Gold Icon" offsetY="40px" />
+<img name="image 1" src="Sprites/Gold Icon" offsetY="60px" />
+<img name="image 1" src="Sprites/Gold Icon" offsetY="40px" />
+<img name="image 1" src="Sprites/Gold Icon" offsetY="20px" />
+<img name="image 1" src="Sprites/Gold Icon" />
+<img name="image 1" src="Sprites/Gold Icon" offsetY="-20px" />
+<img name="image 1" src="Sprites/Gold Icon" offsetY="-40px" />
+<img name="image 1" src="Sprites/Gold Icon" offsetY="-60px" />
+<img name="image 1" src="Sprites/Gold Icon" offsetY="-40px" />
+<img name="image 1" src="Sprites/Gold Icon" offsetY="-20px" />
+</size><br />
+
+<size="60">MarginLeft
+<img name="image 1" src="Sprites/Gold Icon"  />
+<img name="image 1" src="Sprites/Gold Icon" margin-left="10px" />
+<img name="image 1" src="Sprites/Gold Icon" margin-left="20px" />
+<img name="image 1" src="Sprites/Gold Icon" margin-left="30px" />
+</size><br />
+<size="60">MarginRight
+<img name="image 1" src="Sprites/Gold Icon"  />
+<img name="image 1" src="Sprites/Gold Icon" margin-right="10px" />
+<img name="image 1" src="Sprites/Gold Icon" margin-right="20px" />
+<img name="image 1" src="Sprites/Gold Icon" margin-right="30px" />
+</size><br />
+
+<size="60">拡大
+<img name="image 1" src="Sprites/Gold Icon" />
+<img name="image 1" src="Sprites/Gold Icon" height="2" width="2" />
+<img name="image 1" src="Sprites/Gold Icon" height="3" width="3" />
+<img name="image 1" src="Sprites/Gold Icon" height="4" width="4" />
+</size><br />
+
+<size="60">縮小
+<img name="image 1" src="Sprites/Gold Icon" />
+<img name="image 1" src="Sprites/Gold Icon" height="0.75" width="0.75" />
+<img name="image 1" src="Sprites/Gold Icon" height="0.5"  width="0.5"  />
+<img name="image 1" src="Sprites/Gold Icon" height="0.25" width="0.25" />
+<img name="image 1" src="Sprites/Gold Icon" height="0.125" width="0.125" />
+</size><br />
+
+<size="60">マルチスプライト読み込み
+<img name="image 1" src="Sprites/Icons#Gold" />
+<img name="image 1" src="Sprites/Icons#Crystal" />
+<img name="image 1" src="Sprites/Icons#Star" />
+<img name="image 1" src="Sprites/Icons#Heart" />
+</size>

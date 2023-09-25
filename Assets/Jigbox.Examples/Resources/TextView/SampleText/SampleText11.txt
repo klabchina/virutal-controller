@@ -1,0 +1,3 @@
+<b>Jigbox TextView Test.</b> Korean<br/>
+<ruby value='루비태그'>&lt;ruby&gt;</ruby>와 <b>&lt;b&gt;</b>, <i>&lt;i&gt;</i>, <color value='red'>&lt;color&gt;</color>, <uppercase>&lt;uppercase&gt;</uppercase>，<lowercase>&lt; lowercase&gt;</lowercase>, <capitalize>&lt; capitalize&gt;</capitalize>, <smallcaps>&lt; smallcaps&gt;</smallcaps> 등의 <span>서식있는 텍스트</span> 형식을 분석하고 올바르게 표시에 반영되어 있는가?
+또한 "줄 바꿈"자동 줄 바꿈에 적용되고 있는가?

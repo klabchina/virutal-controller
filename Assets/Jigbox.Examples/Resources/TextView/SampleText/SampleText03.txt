@@ -1,0 +1,12 @@
+<size='32'>
+<size='56'>『<i><ruby value='にんげん'>人間</ruby>を<ruby value='かみさま'>神様</ruby><ruby value='いじょう'>以上</ruby>のものと<ruby value='うぬぼ'>自惚</ruby>れさせた</i>』</size><br/>
+これが<b><ruby value='のうずい'>脳髄</ruby>の<ruby value='ざいあくし'>罪悪史</ruby></b>の<color value='yellow'><ruby value='だい'>第</ruby><ruby value='いち'>一</ruby>ページ</color>であった。<br/>
+<size='56'>『<i><ruby value='にんげん'>人間</ruby>を<ruby value='だいしぜんかい'>大自然界</ruby>に<ruby value='はんこう'>反抗</ruby>させた</i>』</size><br/>
+これが、その<color value='yellow'><ruby value='だい'>第</ruby><ruby value='に'>二</ruby>ページ</color>であった。<br/>
+<size='56'>『<i><ruby value='じんるい'>人類</ruby>を<ruby value='きんじゅう'>禽獣</ruby>の<ruby value='せかい'>世界</ruby>に<ruby value='お'>逐</ruby>い<ruby value='かえ'>返</ruby>した</i>』</size><br/>
+というのがその<color value='yellow'><ruby value='だい'>第</ruby><ruby value='さん'>三</ruby>ページ</color>であった。<br/>
+<size='48'>『<i><ruby value='じんるい'>人類</ruby>を<ruby value='ぶっしつ'>物質</ruby>と<ruby value='ほんのう'>本能</ruby>ばかりの<ruby value='きょむせかい'>虚無世界</ruby>に<ruby value='くる'>狂</ruby>い<ruby value='めぐ'>廻</ruby>らせた</i>』</size><br/>
+というのがその<color value='yellow'><ruby value='だい'>第</ruby><ruby value='よん'>四</ruby>ページ</color>であった。<br/>
+<size='56'>『<i><ruby value='じんるい'>人類</ruby>を<ruby value='じめつ'>自滅</ruby>の<ruby value='しゃめん'>斜面</ruby>スロープへ<ruby value='お'>逐</ruby>い<ruby value='おと'>落</ruby>した</i>』</size><br/>
+それでおしまいであった。
+</size>

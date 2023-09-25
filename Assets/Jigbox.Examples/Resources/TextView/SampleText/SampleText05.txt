@@ -1,0 +1,6 @@
+1行目: TextView.characterSpacingは0.1<br/>
+2行目: <span spacing="0.5">spacing=0.5</span><br/>
+3行目: <b spacing="0.5">ネスト<i spacing="2">した場合の</i>テスト</b><br/>
+4行目: <b spacing="0.5">折り返し<i spacing="2">した場合のテスト</i>テスト</b><br/>
+5行目: <ruby="ルビ" spacing="0.5">本文の方が長い</ruby><br/>
+6行目: <ruby="ルビルビルビルビルビルビルビルビルビルビルビルビルビ" spacing="0.5">本文の方が短い</ruby>

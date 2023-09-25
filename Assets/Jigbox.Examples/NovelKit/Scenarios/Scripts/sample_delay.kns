@@ -1,0 +1,70 @@
+// シーン名
+#sample-delay
+
+ch 1 load chara_sample
+
+- キャラクター表示
+
+- セリフ中にキャラクターを移動 +
+
+delay 0.5
+ch 1 move - - 1 /100
+enddelay
+
+waitclick
+
+
+
+- セリフ中に複数の動きを実行 +
+
+delay 0.25
+ch 1 move - - 0.25 /-100
+enddelay
+
+delay 0.25
+ch 1 move - - 0.25 /0 /100
+enddelay
+
+delay 0.25
+ch 1 move - - 0.25 /-100
+enddelay
+
+delay 0.25
+ch 1 move - - 0.25 /0 /-100
+enddelay
+
+waitclick
+
+textmode Additive
+clear
+
+singletext enable
+
+- セリフのスピードを +
+waittext
+
+textspeed 0.5
+textspeed 0.5 auto
+
+- 遅くしたり、 +
+waittext
+wait 0.5
+textspeed 0.01
+textspeed 0.01 auto
+
+- 早くしたりすることもできます。 +
+singletext disable
+waitclick
+
+textspeed default
+textspeed default auto
+
+textmode Normal
+
+
+- 遅延処理サンプルおわり
+- 選択に戻ります
+
+ch 1 delete
+
+goto sample-select

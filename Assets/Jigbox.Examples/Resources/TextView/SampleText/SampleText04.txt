@@ -1,0 +1,3 @@
+1 <ruby='ぎょう'>行</ruby><ruby='め'>目</ruby>: <size="24"><ruby='タイポグラフィ'>Typography</ruby> <ruby='フォントサイズ'>FontSize</ruby> 24 </size>(<ruby='インスペクタ'>Inspector</ruby> で<ruby='し'>指</ruby><ruby='てい'>定</ruby>した<ruby='き'>基</ruby><ruby='じゅん'>準</ruby>のフォントサイズ)<br/>
+2 <ruby='ぎょう'>行</ruby><ruby='め'>目</ruby>: <size="48"><ruby='タイポグラフィ' offset='-0.25'>Typography</ruby> <ruby='フォントサイズ' offset='-0.25'>FontSize</ruby> 48 </size>(タグでsize<ruby='し'>指</ruby><ruby='てい'>定</ruby>)<br/>
+3 <ruby='ぎょう'>行</ruby><ruby='め'>目</ruby>: <size="48"><ruby='タイポグラフィ' offset='-0.25'>Typography</ruby> <ruby='フォントサイズ' offset='-0.25'>FontSize</ruby> 48 </size>(タグでsize<ruby='し'>指</ruby><ruby='てい'>定</ruby>)

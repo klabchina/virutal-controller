@@ -1,0 +1,12 @@
+%sample_bg_load1 $arg1=sample $arg2=100 $arg3=100 $arg4=100 $arg5=100
+bg 1 load $arg1
+bg 1 size $arg2 $arg3
+bg 1 pos $arg4 $arg5
+%sample_bg_load2 $arg1=sample $arg2=100 $arg3=100
+bg 1 load $arg1
+bg 1 size $arg2 $arg3
+bg 1 pos @center
+%sample_packed_text $text=text
+- ||$text||
+%bad_pattern_sample $arg1=load $arg2=sample
+bg 1 $arg1 $arg2

@@ -1,0 +1,45 @@
+resource=0 sound=0 script=0 definition=0
+#sample-if
+$favorite 0
+- 選択肢制御のサンプルです。
+goto sample-if-select
+#sample-if-select
+- 確認したい内容を選択してください。
+select 好感度の変化 favorite-select
+select イベントを見る event-select
+select サンプルの選択に戻る sample-if-end
+#favorite-select
+- 好感度の状態を選択します。
+select 好感度+1 favorite+1
+select 好感度-1 favorite-1
+select 戻る sample-if-select
+#favorite+1
+$favorite $favorite+1
+- 好感度が1上がりました。
+goto favorite-select
+#favorite-1
+$favorite $favorite-1
+- 好感度が1下がりました。
+goto favorite-select
+#event-select
+if $favorite <= 0
+goto sample-if-event-1
+endif
+if $favorite <= 3
+goto sample-if-event-2
+endif
+if $favorite > 3
+goto sample-if-event-3
+endif
+#sample-if-event-1
+- 好感度が低い場合のイベントです。
+goto sample-if-select
+#sample-if-event-2
+- 好感度がそこそこの場合のイベントです。
+goto sample-if-select
+#sample-if-event-3
+- 好感度が高い場合のイベントです。
+goto sample-if-select
+#sample-if-end
+- 選択に戻ります
+goto sample-select
