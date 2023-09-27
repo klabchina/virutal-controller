@@ -21,6 +21,7 @@ namespace Jigbox.VirtualCursor
         }
 
         private GameObject currentObject;
+        private GameObject currentOverObject;
         private PointerEventData pointerEventData;
         public CursorPlugin()
         {
@@ -36,7 +37,6 @@ namespace Jigbox.VirtualCursor
             
             if (findedClickable.gameObject)
             {
-                Debug.LogWarning(currentObject);
                 currentObject = findedClickable.gameObject;
                 var pointerDownHandler = ExecuteEvents.GetEventHandler<IPointerDownHandler>(currentObject);
                 ExecuteEvents.ExecuteHierarchy(pointerDownHandler, pointerEventData, ExecuteEvents.pointerDownHandler);
@@ -64,7 +64,7 @@ namespace Jigbox.VirtualCursor
 
 
                 var pointerUpHandler = ExecuteEvents.GetEventHandler<IPointerUpHandler>(currentObject);
-                ExecuteEvents.ExecuteHierarchy(currentObject, pointerEventData, ExecuteEvents.pointerUpHandler);
+                ExecuteEvents.ExecuteHierarchy(pointerUpHandler, pointerEventData, ExecuteEvents.pointerUpHandler);
                 //end dragging
                 var endDragHandler = ExecuteEvents.GetEventHandler<IEndDragHandler>(currentObject);
                 ExecuteEvents.ExecuteHierarchy(endDragHandler, pointerEventData, ExecuteEvents.endDragHandler);
@@ -85,6 +85,25 @@ namespace Jigbox.VirtualCursor
 
                 var moveHandler = ExecuteEvents.GetEventHandler<IPointerMoveHandler>(currentObject);
                 ExecuteEvents.Execute(moveHandler, pointerEventData, ExecuteEvents.moveHandler);
+            }
+            else
+            {
+                //point enter and point exit
+                pointerEventData.position = screenVector;
+                List<RaycastResult> results = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(pointerEventData, results);
+                RaycastResult findedClickable = FindFirstRaycast(results);
+                if (findedClickable.gameObject != currentOverObject)
+                {
+                    var pointerExitHandler = ExecuteEvents.GetEventHandler<IPointerExitHandler>(currentOverObject);
+                    ExecuteEvents.Execute(pointerExitHandler, pointerEventData, ExecuteEvents.pointerExitHandler);
+                    currentOverObject = findedClickable.gameObject;
+                    if (currentOverObject != null)
+                    {
+                        var pointerEnterHandler = ExecuteEvents.GetEventHandler<IPointerEnterHandler>(currentOverObject);
+                        ExecuteEvents.Execute(pointerEnterHandler, pointerEventData, ExecuteEvents.pointerEnterHandler);
+                    }
+                }
             }
         }
         
