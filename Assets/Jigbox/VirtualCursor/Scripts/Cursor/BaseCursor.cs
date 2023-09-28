@@ -11,6 +11,9 @@ namespace Jigbox.VirtualCursor
     {
         [Header("px per Second")]
         public float MoveSpeed;
+
+        public int TouchCount { get; protected set; }
+
         protected Vector3 moveDir;
 
 
@@ -46,10 +49,12 @@ namespace Jigbox.VirtualCursor
             if (IsCursorDown())
             {
                 CursorPlugin.GetInstance().BoaderCastDownEvent(ScreenPoint);
+                TouchCount = 1;
             }
             else if (IsCursorUp())
             {
                 CursorPlugin.GetInstance().BoaderCastUpEvent(ScreenPoint);
+                TouchCount = 0;
             }
             else
             {

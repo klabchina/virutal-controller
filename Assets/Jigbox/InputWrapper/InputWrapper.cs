@@ -18,6 +18,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Jigbox.VirtualCursor;
 
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -94,7 +95,7 @@ namespace Jigbox
 #endif
             }
             
-            return returnValue;
+            return returnValue || VirtualCursorMgr.Instance.TouchCount > 0;
         }
 
         /// <summary>
@@ -264,7 +265,7 @@ namespace Jigbox
 #endif
             }
             
-            return returnValue;
+            return returnValue + VirtualCursorMgr.Instance.TouchCount;
         }
 
         /// <summary>

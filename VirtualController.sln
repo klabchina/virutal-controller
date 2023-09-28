@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JigboxRuntime", "JigboxRuntime.csproj", "{32CAB599-CACD-1E5C-1BD5-8CFC6BF7F7CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JigboxEditor", "JigboxEditor.csproj", "{6A69A18E-6564-2E7F-FFF9-225FE837429C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JigboxExampleRuntime", "JigboxExampleRuntime.csproj", "{7348E060-A05C-57CC-B2CD-E965300A6298}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JigboxRuntime", "JigboxRuntime.csproj", "{32CAB599-CACD-1E5C-1BD5-8CFC6BF7F7CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{063C7A63-541F-A499-8276-9EC10F121DA1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{F1CF36F6-8A35-4916-FD19-155F5D619877}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JigboxEditor", "JigboxEditor.csproj", "{6A69A18E-6564-2E7F-FFF9-225FE837429C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JigboxExampleEditor", "JigboxExampleEditor.csproj", "{5AF0AADC-6045-9BBA-F1A4-4FEA67797A62}"
 EndProject
@@ -19,14 +19,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{32CAB599-CACD-1E5C-1BD5-8CFC6BF7F7CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32CAB599-CACD-1E5C-1BD5-8CFC6BF7F7CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32CAB599-CACD-1E5C-1BD5-8CFC6BF7F7CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32CAB599-CACD-1E5C-1BD5-8CFC6BF7F7CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A69A18E-6564-2E7F-FFF9-225FE837429C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A69A18E-6564-2E7F-FFF9-225FE837429C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A69A18E-6564-2E7F-FFF9-225FE837429C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A69A18E-6564-2E7F-FFF9-225FE837429C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7348E060-A05C-57CC-B2CD-E965300A6298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7348E060-A05C-57CC-B2CD-E965300A6298}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7348E060-A05C-57CC-B2CD-E965300A6298}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7348E060-A05C-57CC-B2CD-E965300A6298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32CAB599-CACD-1E5C-1BD5-8CFC6BF7F7CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32CAB599-CACD-1E5C-1BD5-8CFC6BF7F7CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32CAB599-CACD-1E5C-1BD5-8CFC6BF7F7CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32CAB599-CACD-1E5C-1BD5-8CFC6BF7F7CE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{063C7A63-541F-A499-8276-9EC10F121DA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{063C7A63-541F-A499-8276-9EC10F121DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{063C7A63-541F-A499-8276-9EC10F121DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,10 +39,6 @@ Global
 		{F1CF36F6-8A35-4916-FD19-155F5D619877}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1CF36F6-8A35-4916-FD19-155F5D619877}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1CF36F6-8A35-4916-FD19-155F5D619877}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6A69A18E-6564-2E7F-FFF9-225FE837429C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A69A18E-6564-2E7F-FFF9-225FE837429C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A69A18E-6564-2E7F-FFF9-225FE837429C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A69A18E-6564-2E7F-FFF9-225FE837429C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5AF0AADC-6045-9BBA-F1A4-4FEA67797A62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5AF0AADC-6045-9BBA-F1A4-4FEA67797A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AF0AADC-6045-9BBA-F1A4-4FEA67797A62}.Release|Any CPU.ActiveCfg = Release|Any CPU

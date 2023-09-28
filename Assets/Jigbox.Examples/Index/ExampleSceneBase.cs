@@ -12,6 +12,8 @@ namespace Jigbox.Examples
         protected virtual void Awake()
         {
             Application.targetFrameRate = TargetFrameRate;
+            var vgo = Resources.Load("Prefabs/JigboxStarter") as GameObject;
+            GameObject.Instantiate(vgo);
         }
     }
 }
