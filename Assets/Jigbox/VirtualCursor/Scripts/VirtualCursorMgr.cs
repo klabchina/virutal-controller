@@ -71,10 +71,6 @@ namespace Jigbox.VirtualCursor
         {
             get
             {
-                if (instanceCaches.Values.Sum((t)=>t.TouchCount) > 0)
-                {
-                    Debug.LogWarning(" is now virtual click now");
-                }
                 return instanceCaches.Values.Sum((t)=>t.TouchCount);
             }
         }

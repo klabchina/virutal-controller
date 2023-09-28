@@ -30,10 +30,12 @@ namespace Jigbox.VirtualCursor
             if (context.phase.Equals(InputActionPhase.Started))
             {
                 CursorPlugin.GetInstance().BoaderCastDownEvent(ScreenPoint);
+                TouchCount = 1;
             }
             else if (context.phase.Equals(InputActionPhase.Canceled))
             {
                 CursorPlugin.GetInstance().BoaderCastUpEvent(ScreenPoint);
+                TouchCount = 0;
             }
         }
 
