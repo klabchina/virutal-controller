@@ -67,11 +67,20 @@ namespace Jigbox.VirtualCursor
 
         private static Dictionary<int, VirtualCursorInstance> instanceCaches = new();
         
+        internal BaseCursor LastVirtualCursor { get; set; }
         public int TouchCount 
         {
             get
             {
                 return instanceCaches.Values.Sum((t)=>t.TouchCount);
+            }
+        }
+
+        public Vector2 CursorPoint
+        { 
+            get
+            {
+                return LastVirtualCursor ? LastVirtualCursor.ScreenPoint : Vector2.zero;
             }
         }
 

@@ -19,7 +19,15 @@ namespace Jigbox.VirtualCursor
 
         private Vector2 screenAspect;
         private RectTransform canvasRoot;
-        
+        public Vector3 ScreenPoint
+        {
+            get
+            {
+                Vector2 uguiScreenPos = new Vector2(transform.localPosition.x + canvasRoot.sizeDelta.x / 2, transform.localPosition.y + canvasRoot.sizeDelta.y / 2);
+                return new Vector3(uguiScreenPos.x * screenAspect.x, uguiScreenPos.y * screenAspect.y, transform.localPosition.z);
+            }
+        }
+
         // Start is called before the first frame update
         protected virtual void Start()
         {
@@ -48,13 +56,14 @@ namespace Jigbox.VirtualCursor
 
             if (IsCursorDown())
             {
-                CursorPlugin.GetInstance().BoaderCastDownEvent(ScreenPoint);
                 TouchCount = 1;
+                VirtualCursorMgr.Instance.LastVirtualCursor = this;
+                CursorPlugin.GetInstance().BoaderCastDownEvent(ScreenPoint);
             }
             else if (IsCursorUp())
             {
-                CursorPlugin.GetInstance().BoaderCastUpEvent(ScreenPoint);
                 TouchCount = 0;
+                CursorPlugin.GetInstance().BoaderCastUpEvent(ScreenPoint);
             }
             else
             {
@@ -76,15 +85,6 @@ namespace Jigbox.VirtualCursor
         protected virtual bool IsCursorUp()
         {
             return false;
-        }
-
-        protected Vector3 ScreenPoint
-        {
-            get
-            {
-                Vector2 uguiScreenPos = new Vector2(transform.localPosition.x + canvasRoot.sizeDelta.x / 2, transform.localPosition.y + canvasRoot.sizeDelta.y / 2);
-                return new Vector3(uguiScreenPos.x * screenAspect.x, uguiScreenPos.y * screenAspect.y, transform.localPosition.z);
-            }
         }
 
 

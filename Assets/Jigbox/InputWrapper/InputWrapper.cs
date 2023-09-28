@@ -198,6 +198,12 @@ namespace Jigbox
         internal static Vector2 GetMousePosition()
         {
             var returnValue = Vector2.zero;
+
+            if (VirtualCursorMgr.Instance.TouchCount > 0)
+            {
+                return VirtualCursorMgr.Instance.CursorPoint;
+            }
+
             if (IsInputSystem)
             {
 #if ENABLE_INPUT_SYSTEM
@@ -390,6 +396,11 @@ namespace Jigbox
         internal static Vector2 GetTouchPosition(int index)
         {
             var returnValue = Vector2.zero;
+            if (VirtualCursorMgr.Instance.TouchCount > 0)
+            {
+                return VirtualCursorMgr.Instance.CursorPoint;
+            }
+
             if (IsInputSystem)
             {
 #if ENABLE_INPUT_SYSTEM

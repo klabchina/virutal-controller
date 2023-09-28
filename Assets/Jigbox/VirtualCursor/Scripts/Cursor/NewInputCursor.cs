@@ -29,13 +29,14 @@ namespace Jigbox.VirtualCursor
         {
             if (context.phase.Equals(InputActionPhase.Started))
             {
-                CursorPlugin.GetInstance().BoaderCastDownEvent(ScreenPoint);
                 TouchCount = 1;
+                VirtualCursorMgr.Instance.LastVirtualCursor = this;
+                CursorPlugin.GetInstance().BoaderCastDownEvent(ScreenPoint);
             }
             else if (context.phase.Equals(InputActionPhase.Canceled))
             {
-                CursorPlugin.GetInstance().BoaderCastUpEvent(ScreenPoint);
                 TouchCount = 0;
+                CursorPlugin.GetInstance().BoaderCastUpEvent(ScreenPoint);
             }
         }
 
