@@ -60,11 +60,22 @@ public partial class @CursorPluginAssets: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0d07284f-0b96-41ea-9184-566edf2da65c"",
-                    ""path"": ""<DualShockGamepad>/buttonSouth"",
+                    ""id"": ""b73635e7-2bcb-4998-b1ae-9c34d6d63408"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PlayStation"",
+                    ""action"": ""MainKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95708df7-3bb0-4857-8c93-675a9110c0f2"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
                     ""action"": ""MainKey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -126,11 +137,22 @@ public partial class @CursorPluginAssets: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""06969035-28ea-4490-8a63-c74db9441b7c"",
-                    ""path"": ""<DualShockGamepad>/leftStick"",
+                    ""id"": ""cac59482-6955-4204-9ce1-b89b19fc2be5"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PlayStation"",
+                    ""action"": ""CrossDir"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8541448-5dd9-477d-b403-b2e1437b6ed1"",
+                    ""path"": ""<XInputController>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XboxController"",
                     ""action"": ""CrossDir"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -167,6 +189,17 @@ public partial class @CursorPluginAssets: IInputActionCollection2, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<Touchscreen>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""XboxController"",
+            ""bindingGroup"": ""XboxController"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<XInputController>"",
                     ""isOptional"": true,
                     ""isOR"": false
                 }
@@ -314,6 +347,15 @@ public partial class @CursorPluginAssets: IInputActionCollection2, IDisposable
         {
             if (m_MobileSchemeIndex == -1) m_MobileSchemeIndex = asset.FindControlSchemeIndex("Mobile");
             return asset.controlSchemes[m_MobileSchemeIndex];
+        }
+    }
+    private int m_XboxControllerSchemeIndex = -1;
+    public InputControlScheme XboxControllerScheme
+    {
+        get
+        {
+            if (m_XboxControllerSchemeIndex == -1) m_XboxControllerSchemeIndex = asset.FindControlSchemeIndex("XboxController");
+            return asset.controlSchemes[m_XboxControllerSchemeIndex];
         }
     }
     public interface IVirtualCursorActions
