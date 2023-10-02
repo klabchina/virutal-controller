@@ -8,6 +8,7 @@ namespace Jigbox.VirtualCursor
 {
     public class CursorPlugin
     {
+
         private static CursorPlugin _instance;
 
         public static CursorPlugin GetInstance()
@@ -21,15 +22,19 @@ namespace Jigbox.VirtualCursor
         }
 
         private GameObject currentObject;
+        private DragInfo dragInfo;
+
         private GameObject currentOverObject;
         private PointerEventData pointerEventData;
         public CursorPlugin()
         {
             pointerEventData = new PointerEventData(EventSystem.current);
+            dragInfo = new();
         }
 
         public void BoaderCastDownEvent(Vector3 screenVector)
         {
+            dragInfo.Reset();
             pointerEventData.position = screenVector;
             List<RaycastResult> results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(pointerEventData, results);
@@ -38,11 +43,13 @@ namespace Jigbox.VirtualCursor
             if (findedClickable.gameObject)
             {
                 currentObject = findedClickable.gameObject;
+                pointerEventData.pointerPress = currentObject;
                 var pointerDownHandler = ExecuteEvents.GetEventHandler<IPointerDownHandler>(currentObject);
                 ExecuteEvents.ExecuteHierarchy(pointerDownHandler, pointerEventData, ExecuteEvents.pointerDownHandler);
 
-                var beginDragHandler = ExecuteEvents.GetEventHandler<IBeginDragHandler>(currentObject);
-                ExecuteEvents.ExecuteHierarchy(beginDragHandler, pointerEventData, ExecuteEvents.beginDragHandler);
+                var initDragHandler = ExecuteEvents.GetEventHandler<IInitializePotentialDragHandler>(currentObject);
+                ExecuteEvents.Execute(initDragHandler, pointerEventData, ExecuteEvents.initializePotentialDrag);
+
             }
             EventSystem.current.SetSelectedGameObject(null);
         }
@@ -60,8 +67,7 @@ namespace Jigbox.VirtualCursor
                     var pointerClickHandler = ExecuteEvents.GetEventHandler<IPointerClickHandler>(currentObject);
                     ExecuteEvents.Execute(pointerClickHandler, pointerEventData, ExecuteEvents.pointerClickHandler);
                 }
-                
-
+                pointerEventData.pointerPress = findedClickable.gameObject;
 
                 var pointerUpHandler = ExecuteEvents.GetEventHandler<IPointerUpHandler>(currentObject);
                 ExecuteEvents.ExecuteHierarchy(pointerUpHandler, pointerEventData, ExecuteEvents.pointerUpHandler);
@@ -80,8 +86,18 @@ namespace Jigbox.VirtualCursor
             {
                 pointerEventData.delta = new Vector2(screenVector.x - pointerEventData.position.x, screenVector.y - pointerEventData.position.y);
                 pointerEventData.position = screenVector;
-                var dragHandler = ExecuteEvents.GetEventHandler<IDragHandler>(currentObject);
-                ExecuteEvents.Execute(dragHandler, pointerEventData, ExecuteEvents.dragHandler);
+
+                if (dragInfo.IsCurrentDrag)
+                {
+                    var dragHandler = ExecuteEvents.GetEventHandler<IDragHandler>(currentObject);
+                    ExecuteEvents.Execute(dragHandler, pointerEventData, ExecuteEvents.dragHandler);
+                }
+                else if (dragInfo.CheckDrag(pointerEventData.delta))
+                {
+                    
+                    var beginDragHandler = ExecuteEvents.GetEventHandler<IBeginDragHandler>(currentObject);
+                    ExecuteEvents.ExecuteHierarchy(beginDragHandler, pointerEventData, ExecuteEvents.beginDragHandler);
+                }
 
                 var moveHandler = ExecuteEvents.GetEventHandler<IPointerMoveHandler>(currentObject);
                 ExecuteEvents.Execute(moveHandler, pointerEventData, ExecuteEvents.moveHandler);
