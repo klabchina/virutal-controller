@@ -14,13 +14,13 @@ namespace Jigbox.VirtualCursor
     {
         private GameObject currentCursor;
         private BaseCursor cursor;
-        public VirtualCursorInstance(VirtualInputSystem inputSystem)
+        public VirtualCursorInstance(VirtualInputSystem inputSystem, Transform p)
         {
             string assetPath = VirtualCursorMgr.InputSystemAssetsMap[inputSystem.ToString()];
-            Canvas rootCanvas = GameObject.Find("Canvas")?.GetComponentInChildren<Canvas>();
             var go = Resources.Load<GameObject>(assetPath);
-            currentCursor = GameObject.Instantiate(go, rootCanvas?.transform);
+            currentCursor = GameObject.Instantiate(go, p);
             cursor = currentCursor.GetComponent<BaseCursor>();
+            cursor.SwitchRoot(p as RectTransform);
         }
 
         public int TouchCount => cursor.TouchCount;
@@ -68,6 +68,13 @@ namespace Jigbox.VirtualCursor
         private static Dictionary<int, VirtualCursorInstance> instanceCaches = new();
         
         internal BaseCursor LastVirtualCursor { get; set; }
+        private RectTransform root;
+
+        public VirtualCursorMgr()
+        {
+            CreateTopCanvas();
+        }
+
         public int TouchCount 
         {
             get
@@ -88,7 +95,7 @@ namespace Jigbox.VirtualCursor
         {
             if (!instanceCaches.ContainsKey(index))
             {
-                instanceCaches.Add(index, new VirtualCursorInstance(inputSystem));
+                instanceCaches.Add(index, new VirtualCursorInstance(inputSystem, root));
             }
             else
             {
@@ -119,6 +126,13 @@ namespace Jigbox.VirtualCursor
                 instanceCaches[index].Dispose();
                 instanceCaches.Remove(index);
             }
+        }
+
+        void CreateTopCanvas()
+        {
+            var go = Resources.Load<GameObject>("Prefabs/VirtualRoot");
+            var ins = GameObject.Instantiate(go);
+            root = ins.GetComponent<RectTransform>();
         }
     }
 }

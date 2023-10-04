@@ -31,11 +31,13 @@ namespace Jigbox.VirtualCursor
         // Start is called before the first frame update
         protected virtual void Start()
         {
-            Canvas item = GameObject.Find("Canvas")?.GetComponent<Canvas>();
-            canvasRoot = GameObject.Find("Canvas")?.GetComponent<RectTransform>();
 
+        }
+
+        public void SwitchRoot(RectTransform rt)
+        {
+            canvasRoot = rt;
             screenAspect = new Vector2(Screen.width / canvasRoot.sizeDelta.x, Screen.height / canvasRoot.sizeDelta.y);
-            
         }
 
         // Update is called once per frame
