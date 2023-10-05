@@ -14,13 +14,14 @@ namespace Jigbox.VirtualCursor
     {
         private GameObject currentCursor;
         private BaseCursor cursor;
-        public VirtualCursorInstance(VirtualInputSystem inputSystem, Transform p)
+        public VirtualCursorInstance(VirtualInputSystem inputSystem, Transform p, float initSpeed)
         {
             string assetPath = VirtualCursorMgr.InputSystemAssetsMap[inputSystem.ToString()];
             var go = Resources.Load<GameObject>(assetPath);
             currentCursor = GameObject.Instantiate(go, p);
             cursor = currentCursor.GetComponent<BaseCursor>();
             cursor.SwitchRoot(p as RectTransform);
+            cursor.MoveSpeed = initSpeed;
         }
 
         public int TouchCount => cursor.TouchCount;
@@ -91,11 +92,11 @@ namespace Jigbox.VirtualCursor
             }
         }
 
-        public void Launch(VirtualInputSystem inputSystem = VirtualInputSystem.NEW_INPUT_SYSTEM, int index = 0)
+        public void Launch(VirtualInputSystem inputSystem = VirtualInputSystem.NEW_INPUT_SYSTEM, int index = 0, float moveSpeed = 1000)
         {
             if (!instanceCaches.ContainsKey(index))
             {
-                instanceCaches.Add(index, new VirtualCursorInstance(inputSystem, root));
+                instanceCaches.Add(index, new VirtualCursorInstance(inputSystem, root, moveSpeed));
             }
             else
             {

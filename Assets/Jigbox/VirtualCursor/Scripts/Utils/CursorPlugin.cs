@@ -52,6 +52,7 @@ namespace Jigbox.VirtualCursor
                 ExecuteEvents.ExecuteHierarchy(pointerDownHandler, pointerEventData, ExecuteEvents.pointerDownHandler);
 
                 var initDragHandler = ExecuteEvents.GetEventHandler<IInitializePotentialDragHandler>(currentObject);
+                pointerEventData.pointerDrag = initDragHandler;
                 ExecuteEvents.Execute(initDragHandler, pointerEventData, ExecuteEvents.initializePotentialDrag);
 
             }
@@ -59,6 +60,7 @@ namespace Jigbox.VirtualCursor
             {
                 pointerEventData.pressPosition = Vector2.zero;
                 pointerEventData.pointerPress = null;
+                pointerEventData.pointerDrag = null;
             }
             EventSystem.current.SetSelectedGameObject(null);
         }
