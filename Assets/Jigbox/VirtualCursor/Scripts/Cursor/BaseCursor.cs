@@ -48,12 +48,9 @@ namespace Jigbox.VirtualCursor
 
             if (!moveDir.Equals(Vector3.zero))
             {
-                Vector3 postVector = transform.localPosition + moveDir * MoveSpeed * Time.deltaTime;
-                if (CanMove(postVector))
-                {
-
-                    transform.localPosition = postVector;
-                }
+                //transform.localPosition + moveDir * MoveSpeed * Time.deltaTime;
+                Vector3 postVector = RangeMoveVector(transform.localPosition, moveDir * MoveSpeed * Time.deltaTime);
+                transform.localPosition = postVector;
             }
 
             if (IsCursorDown())
@@ -90,26 +87,28 @@ namespace Jigbox.VirtualCursor
         }
 
 
-        protected bool CanMove(Vector3 pos)
+        protected Vector3 RangeMoveVector(Vector3 origin, Vector3 offset)
         {
+            Vector3 targetPos = origin + offset;
             if (canvasRoot == null)
             {
-                return true;
+                return targetPos;
             }
 
             Vector2 leftBottom = new Vector2(-canvasRoot.sizeDelta.x / 2, -canvasRoot.sizeDelta.y / 2);
             Vector2 rightTop = new Vector2(canvasRoot.sizeDelta.x / 2, canvasRoot.sizeDelta.y / 2);
-            if (pos.x < leftBottom.x || pos.x > rightTop.x)
+            
+            if (targetPos.x < leftBottom.x || targetPos.x > rightTop.x)
             {
-                return false;
+                offset.x = 0;
             }
 
-            if (pos.y < leftBottom.y || pos.y > rightTop.y)
+            if (targetPos.y < leftBottom.y || targetPos.y > rightTop.y)
             {
-                return false;
+                offset.y = 0;
             }
 
-            return true;
+            return origin + offset;
         }
     }
 }
